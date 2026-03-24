@@ -1,0 +1,23 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+
+# Mac
+.DS_Store
+
+# Docker
+*.log
+
+# VS Code
+.vscode/
+
+# Misc
+*.zip
