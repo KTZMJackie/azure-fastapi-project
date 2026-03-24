@@ -3,5 +3,6 @@ uvicorn[standard]==0.27.1
 azure-identity==1.15.0
 azure-keyvault-secrets==4.7.0
 azure-storage-blob==12.19.0
-azure-identity
-azure-keyvault-secrets
+pytest
+httpx<0.28
+starlette>=0.36.3,<0.37.0

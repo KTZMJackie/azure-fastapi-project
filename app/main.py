@@ -37,7 +37,7 @@ def secret():
     if not kv_name:
         raise HTTPException(status_code=500, detail="Missing env var KEY_VAULT_NAME")
 
-    secret_name = os.environ.get("KEY_VAULT_SECRET_NAME", "HELLO_SECRET")
+    secret_name = os.environ.get("KEY_VAULT_SECRET_NAME", "hello-secret")
     kv_url = f"https://{kv_name}.vault.azure.net/"
 
     client = SecretClient(vault_url=kv_url, credential=DefaultAzureCredential())
