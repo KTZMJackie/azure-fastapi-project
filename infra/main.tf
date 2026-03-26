@@ -28,9 +28,9 @@ resource "azurerm_container_app" "app" {
   }
 
 secret {
-    name  = "acr-pwd"
-    value = "REMOVED_SECRETR9uoB"
-  }
+  name  = "acr-pwd"
+  value = var.acr_password
+}
 
   registry {
     server               = "acrhelloktzmjackie.azurecr.io"
