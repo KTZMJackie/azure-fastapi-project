@@ -57,7 +57,7 @@ Write endpoint protected by API key
 <img width="1429" height="434" alt="Screenshot 2026-03-24 at 5 11 20 PM" src="https://github.com/user-attachments/assets/2af005a7-a6e2-40cc-a64a-3b12e50a5c6c" />
 
 # AUTHENTICATION
-Protected endpoints require header: x-api-key: dev-secret-key
+Protected endpoints require header: x-api-key: <your-api-key>
 
 # CI/CD PIPELINE
 GitHub Actions automatically:
@@ -125,7 +125,8 @@ Application Demo
 
 Secure secret retrieval from Azure Key Vault without hardcoded credentials
 
-<img width="1411" height="764" alt="Screenshot 2026-03-24 at 5 09 09 PM" src="https://github.com/user-attachments/assets/999763d9-009d-4cb6-bce3-00036d2d7ccb" />
+<img width="1411" height="764" alt="Screenshot 2026-03-24 at 5 09 09 PM" src="https://github.com/user-attachments/assets/e64abeab-5e60-47e4-9ce0-9bdbbe769843" />
+
 
 Successful write to Azure Blob Storage using Managed Identity authentication
 
