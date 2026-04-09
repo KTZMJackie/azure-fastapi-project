@@ -131,4 +131,4 @@ Secure secret retrieval from Azure Key Vault without hardcoded credentials
 Successful write to Azure Blob Storage using Managed Identity authentication
 
 # AUTHOR
-Built as part of a hands-on DevOps/cloud engineering learning journey.
+Built as part of a hands-on DevOps/cloud engineering journey.
