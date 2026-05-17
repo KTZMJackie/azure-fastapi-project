@@ -1,5 +1,5 @@
 # Azure FastAPI DevOps Project
-A production-style cloud project that deploys a containerized FastAPI application to Azure using Terraform, Azure Container Apps, Managed Identity, Key Vault, Blob Storage, and GitHub Actions CI/CD.
+A production-style cloud project that deploys a containerized FastAPI application to Azure using Terraform, Azure Container Apps, Managed Identity, Key Vault, Blob Storage, Run Pytest and GitHub Actions CI/CD.
 
 # OVERVIEW
 This project demonstrates how to build, secure, and deploy a cloud-native application without hardcoding credentials.
@@ -57,7 +57,7 @@ Write endpoint protected by API key
 <img width="1429" height="434" alt="Screenshot 2026-03-24 at 5 11 20 PM" src="https://github.com/user-attachments/assets/2af005a7-a6e2-40cc-a64a-3b12e50a5c6c" />
 
 # AUTHENTICATION
-Protected endpoints require header: x-api-key: <your-api-key>
+Protected endpoints require header: x-api-key: your-key
 
 # CI/CD PIPELINE
 GitHub Actions automatically:
@@ -110,11 +110,13 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 
 # BUILD & PUSH IMAGE
+```bash
 docker buildx build --platform linux/amd64 \
 
-  -t <acr-name>.azurecr.io/p16-fastapi:<tag> \
+  -t <acr-name>.azurecr.io/p16-fastapi:<IMAGE> \
   
   --push .
+```
 
 # SCREENSHOTS
 <img width="655" height="145" alt="Screenshot 2026-03-24 at 5 07 00 PM" src="https://github.com/user-attachments/assets/fb27275d-f215-4f57-9dd9-b25dbf325dcd" />
