@@ -66,12 +66,14 @@ def _get_blob_service_client():
 def write(x_api_key: str | None = Header(default=None)):
     verify_api_key(x_api_key)
 
-    bsc = _get_blob_service_client()
-    blob_name = f"{uuid4()}.txt"
-    blob_client = bsc.get_blob_client(container=CONTAINER_NAME, blob=blob_name)
-    blob_client.upload_blob("Hello from Managed Identity + Key Vault", overwrite=True)
-
-    return {"blob_name": blob_name}
+    try:
+        bsc = _get_blob_service_client()
+        blob_name = f"{uuid4()}.txt"
+        blob_client = bsc.get_blob_client(container=CONTAINER_NAME, blob=blob_name)
+        blob_client.upload_blob("Hello from Managed Identity + Key Vault", overwrite=True)
+        return {"blob_name": blob_name}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Write failed: {e}")
 
 
 @app.get("/read")
