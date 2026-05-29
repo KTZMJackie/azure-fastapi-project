@@ -72,9 +72,24 @@ Trigger: git push to main
 Basic tests included using pytest: pytest ./app
 Covers: root endpoint, health check, unauthorized access
 
-# INFRASTRUCTURE (TERRAFORM)
-Resources managed via Terraform: Container App, Container App Environment, Log Analytics Workspace
-Example: terraform init, terraform apply
+## Terraform State
+
+State is stored remotely in Azure Blob Storage with state locking enabled.
+The backend storage account must be created before running `terraform init`:
+
+```bash
+az group create --name rg-hello-aca-sg --location southeastasia
+
+az storage account create \
+  --name tfstatektzmjackie \
+  --resource-group rg-hello-aca-sg \
+  --sku Standard_LRS \
+  --encryption-services blob
+
+az storage container create \
+  --name tfstate \
+  --account-name tfstatektzmjackie
+```
 
 # STORAGE FLOW
 1. App retrieves storage account name from Key Vault
