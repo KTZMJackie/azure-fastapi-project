@@ -33,15 +33,15 @@ secret {
 }
 
   registry {
-    server               = "acrhelloktzmjackie.azurecr.io"
-    username             = "acrhelloktzmjackie"
+    server               = "${var.acr_name}.azurecr.io"
+    username             = var.acr_name
     password_secret_name = "acr-pwd"
   }
 
   template {
     container {
       name   = "fastapi"
-      image = "acrhelloktzmjackie.azurecr.io/p16-fastapi:v7"
+      image = "${var.acr_name}.azurecr.io/p16-fastapi:v7"
       cpu    = 0.25
       memory = "0.5Gi"
 
