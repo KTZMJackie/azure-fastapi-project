@@ -47,7 +47,7 @@ secret {
 
     env {
         name  = "API_KEY"
-        value = "dev-secret-key"
+        value = var.api_key
       }
 
       env {
