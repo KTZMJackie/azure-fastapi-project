@@ -13,3 +13,15 @@ variable "acr_name" {
   type        = string
   default     = "acrhelloktzmjackie"
 }
+
+variable "key_vault_name" {
+  description = "Name of the Azure Key Vault instance"
+  type        = string
+  default     = "kvhello"
+}
+
+variable "key_vault_secret_name" {
+  description = "Name of the secret in Key Vault to retrieve"
+  type        = string
+  default     = "hello-secret"
+}
