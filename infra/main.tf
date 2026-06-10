@@ -52,12 +52,12 @@ secret {
 
       env {
         name  = "KEY_VAULT_NAME"
-        value = "kvhello"
+        value = var.key_vault_name
       }
 
       env {
         name  = "KEY_VAULT_SECRET_NAME"
-        value = "hello-secret"
+        value = var.key_vault_secret_name
       }
     }
 
