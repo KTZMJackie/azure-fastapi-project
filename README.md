@@ -60,11 +60,10 @@ Write endpoint protected by API key
 Protected endpoints require header: x-api-key: your-key
 
 # CI/CD PIPELINE
-GitHub Actions automatically:
 
-1. Builds Docker image
-2. Pushes image to Azure Container Registry
-3. Updates Azure Container App with new image
+CI (tests): runs automatically on every push and pull request to main
+
+Deploy (build → push to ACR → update Container App): manual trigger only, via workflow_dispatch in GitHub Actions — a stale Azure credential or transient failure can't turn every commit into a failed pipeline run
 
 Trigger: git push to main
 
