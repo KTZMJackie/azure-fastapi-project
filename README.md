@@ -42,16 +42,21 @@ Managed Identity (RBAC)
 
 GitHub Actions (CI/CD)
 
+## Infrastructure scope
+Terraform provisions the Container App, its environment, and Log Analytics.
+
+Key Vault, Storage, and ACR are created via the Azure CLI and referenced by the app - not yet managed by this Terraform.
+
+RBAC role assignments are applied manually. (Next step: bring these under Terraform.)
+
 # SECURITY DESIGN
-No credentials stored in code
+- App-to-Azure auth (Key Vault, Blob) uses Managed Identity — no secrets in app code
+- Secrets retrieved dynamically from Key Vault at runtime
+- Storage access controlled via RBAC role assignments
+- Write endpoint protected by an API key
 
-Managed Identity used for Azure authentication
-
-Secrets retrieved dynamically from Key Vault
-
-Storage access controlled via RBAC
-
-Write endpoint protected by API key
+> Note: ACR image pull uses the ACR admin credential (a Terraform variable), and the
+> API key is supplied as an environment variable — the two spots that aren't fully passwordless.
 
 # API ENDPOINTS
 <img width="1429" height="434" alt="Screenshot 2026-03-24 at 5 11 20 PM" src="https://github.com/user-attachments/assets/2af005a7-a6e2-40cc-a64a-3b12e50a5c6c" />
